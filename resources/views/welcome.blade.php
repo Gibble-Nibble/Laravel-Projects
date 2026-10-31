@@ -51,6 +51,20 @@
                         </article>
                     </a>
                 </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <a href="{{ route('tfa6.home') }}" class="text-decoration-none text-dark">
+                        <article class="card project-card h-100 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <span class="badge text-bg-success mb-3">TFA6</span>
+                                <h2 class="h4 card-title">Eloquent POS App</h2>
+                                <p class="card-text text-secondary">
+                                    A database-backed POS application using migrations, seeders, and Eloquent models.
+                                </p>
+                                <span class="btn btn-outline-success">Open project</span>
+                            </div>
+                        </article>
+                    </a>
+                </div>
             </div>
         </main>
     </body>
