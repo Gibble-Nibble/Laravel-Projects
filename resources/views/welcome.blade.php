@@ -65,6 +65,20 @@
                         </article>
                     </a>
                 </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <a href="{{ route('tfa7.home') }}" class="text-decoration-none text-dark">
+                        <article class="card project-card h-100 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <span class="badge text-bg-info mb-3">TFA7</span>
+                                <h2 class="h4 card-title">Editable POS App</h2>
+                                <p class="card-text text-secondary">
+                                    Create and edit customers and users, with validation and profile image uploads.
+                                </p>
+                                <span class="btn btn-outline-info">Open project</span>
+                            </div>
+                        </article>
+                    </a>
+                </div>
             </div>
         </main>
     </body>

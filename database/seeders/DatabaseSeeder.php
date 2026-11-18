@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(Tfa6Seeder::class);
+        $this->call(Tfa7Seeder::class);
     }
 }
