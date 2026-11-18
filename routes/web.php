@@ -8,6 +8,7 @@ use App\Http\Controllers\Tfa6UserController;
 use App\Http\Controllers\Tfa7CustomerController;
 use App\Http\Controllers\Tfa7PageController;
 use App\Http\Controllers\Tfa7UserController;
+use App\Http\Controllers\Tsa3PageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -44,4 +45,11 @@ Route::prefix('tfa7')->name('tfa7.')->group(function () {
     Route::post('/users', [Tfa7UserController::class, 'store'])->name('users.store');
     Route::get('/users/{user}/edit', [Tfa7UserController::class, 'edit'])->name('users.edit');
     Route::put('/users/{user}', [Tfa7UserController::class, 'update'])->name('users.update');
+});
+
+Route::prefix('tsa3')->name('tsa3.')->group(function () {
+    Route::get('/', [Tsa3PageController::class, 'index'])->name('home');
+    Route::get('/tasks', [Tsa3PageController::class, 'tasks'])->name('tasks');
+    Route::get('/profile', [Tsa3PageController::class, 'profile'])->name('profile');
+    Route::get('/about', [Tsa3PageController::class, 'about'])->name('about');
 });

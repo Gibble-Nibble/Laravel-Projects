@@ -80,4 +80,18 @@ class Tfa7WorkflowTest extends TestCase
         $this->get(route('tfa7.users'))->assertOk();
         $this->get(route('tfa7.users.create'))->assertOk();
     }
+
+    public function test_project_navigation_switches_between_all_assessments(): void
+    {
+        foreach (['tfa5.home', 'tfa6.home', 'tfa7.home'] as $page) {
+            $response = $this->get(route($page));
+
+            $response->assertOk()
+                ->assertSee('Switch project')
+                ->assertSee(route('tfa5.home'), false)
+                ->assertSee(route('tfa6.home'), false)
+                ->assertSee(route('tfa7.home'), false)
+                ->assertSee(route('tsa3.home'), false);
+        }
+    }
 }

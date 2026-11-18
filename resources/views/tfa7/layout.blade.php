@@ -25,7 +25,7 @@
                 <a class="nav-link" href="{{ route('tfa7.about') }}">About</a>
                 <a class="nav-link" href="{{ route('tfa7.customers') }}">Customers</a>
                 <a class="nav-link" href="{{ route('tfa7.users') }}">Users</a>
-                <a class="nav-link text-warning" href="{{ route('projects.index') }}">All projects</a>
+                @include('partials.project-switcher')
             </div>
         </div>
     </div>

@@ -3,6 +3,8 @@
 use Illuminate\Support\Str;
 use Pdo\Mysql;
 
+$tsa3Driver = env('DB_TSA3_CONNECTION', env('DB_CONNECTION', 'sqlite'));
+
 return [
 
     /*
@@ -42,6 +44,30 @@ return [
             'journal_mode' => null,
             'synchronous' => null,
             'transaction_mode' => 'DEFERRED',
+        ],
+
+        'tsa3' => [
+            'driver' => $tsa3Driver,
+            'url' => env('DB_TSA3_URL'),
+            'database' => env(
+                'DB_TSA3_DATABASE',
+                $tsa3Driver === 'sqlite' ? database_path('tsa3.sqlite') : 'laravel_pos_tsa3',
+            ),
+            'host' => env('DB_TSA3_HOST', env('DB_HOST', '127.0.0.1')),
+            'port' => env('DB_TSA3_PORT', env('DB_PORT', '3306')),
+            'username' => env('DB_TSA3_USERNAME', env('DB_USERNAME', 'root')),
+            'password' => env('DB_TSA3_PASSWORD', env('DB_PASSWORD', '')),
+            'unix_socket' => env('DB_TSA3_SOCKET', env('DB_SOCKET', '')),
+            'charset' => env('DB_TSA3_CHARSET', env('DB_CHARSET', 'utf8mb4')),
+            'collation' => env('DB_TSA3_COLLATION', env('DB_COLLATION', 'utf8mb4_unicode_ci')),
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'foreign_key_constraints' => env('DB_TSA3_FOREIGN_KEYS', true),
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                Mysql::ATTR_SSL_CA => env('DB_TSA3_SSL_CA', env('MYSQL_ATTR_SSL_CA')),
+            ]) : [],
         ],
 
         'mysql' => [

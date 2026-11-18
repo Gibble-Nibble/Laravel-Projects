@@ -39,6 +39,8 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "@php artisan key:generate",
             "@php artisan migrate --force",
+            "@php artisan migrate --database=tsa3 --path=database/migrations/tsa3 --force",
+            "@php artisan db:seed --database=tsa3 --class=\"Database\\Seeders\\Tsa3Seeder\" --force",
             "npm install --ignore-scripts",
             "npm run build"
         ],

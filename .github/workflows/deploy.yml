@@ -51,6 +51,8 @@ jobs:
           npm run build
 
           php artisan migrate --force
+          php artisan migrate --database=tsa3 --path=database/migrations/tsa3 --force
+          php artisan db:seed --database=tsa3 --class='Database\Seeders\Tsa3Seeder' --force
           php artisan optimize:clear
           php artisan config:cache
           php artisan route:cache
