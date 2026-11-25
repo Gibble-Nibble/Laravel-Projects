@@ -14,6 +14,7 @@
     "require-dev": {
         "fakerphp/faker": "^1.23",
         "laravel/boost": "^2.10",
+        "laravel/breeze": "^2.4",
         "laravel/pail": "^1.2.5",
         "laravel/pao": "^1.0.6",
         "laravel/pint": "^1.27",
@@ -41,6 +42,10 @@
             "@php artisan migrate --force",
             "@php artisan migrate --database=tsa3 --path=database/migrations/tsa3 --force",
             "@php artisan db:seed --database=tsa3 --class=\"Database\\Seeders\\Tsa3Seeder\" --force",
+            "@php artisan migrate --database=tfa8 --path=database/migrations/tfa8 --force",
+            "@php artisan db:seed --database=tfa8 --class=\"Database\\Seeders\\Tfa8Seeder\" --force",
+            "@php artisan migrate --database=tsa4 --path=database/migrations/tsa4 --force",
+            "@php artisan db:seed --database=tsa4 --class=\"Database\\Seeders\\Tsa4Seeder\" --force",
             "npm install --ignore-scripts",
             "npm run build"
         ],

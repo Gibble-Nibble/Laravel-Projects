@@ -4,6 +4,8 @@ use Illuminate\Support\Str;
 use Pdo\Mysql;
 
 $tsa3Driver = env('DB_TSA3_CONNECTION', env('DB_CONNECTION', 'sqlite'));
+$tfa8Driver = env('DB_TFA8_CONNECTION', env('DB_CONNECTION', 'sqlite'));
+$tsa4Driver = env('DB_TSA4_CONNECTION', env('DB_CONNECTION', 'sqlite'));
 
 return [
 
@@ -67,6 +69,54 @@ return [
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 Mysql::ATTR_SSL_CA => env('DB_TSA3_SSL_CA', env('MYSQL_ATTR_SSL_CA')),
+            ]) : [],
+        ],
+
+        'tfa8' => [
+            'driver' => $tfa8Driver,
+            'url' => env('DB_TFA8_URL'),
+            'database' => env(
+                'DB_TFA8_DATABASE',
+                $tfa8Driver === 'sqlite' ? database_path('tfa8.sqlite') : 'laravel_pos_tfa8',
+            ),
+            'host' => env('DB_TFA8_HOST', env('DB_HOST', '127.0.0.1')),
+            'port' => env('DB_TFA8_PORT', env('DB_PORT', '3306')),
+            'username' => env('DB_TFA8_USERNAME', env('DB_USERNAME', 'root')),
+            'password' => env('DB_TFA8_PASSWORD', env('DB_PASSWORD', '')),
+            'unix_socket' => env('DB_TFA8_SOCKET', env('DB_SOCKET', '')),
+            'charset' => env('DB_TFA8_CHARSET', env('DB_CHARSET', 'utf8mb4')),
+            'collation' => env('DB_TFA8_COLLATION', env('DB_COLLATION', 'utf8mb4_unicode_ci')),
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'foreign_key_constraints' => env('DB_TFA8_FOREIGN_KEYS', true),
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                Mysql::ATTR_SSL_CA => env('DB_TFA8_SSL_CA', env('MYSQL_ATTR_SSL_CA')),
+            ]) : [],
+        ],
+
+        'tsa4' => [
+            'driver' => $tsa4Driver,
+            'url' => env('DB_TSA4_URL'),
+            'database' => env(
+                'DB_TSA4_DATABASE',
+                $tsa4Driver === 'sqlite' ? database_path('tsa4.sqlite') : 'laravel_tsa4',
+            ),
+            'host' => env('DB_TSA4_HOST', env('DB_HOST', '127.0.0.1')),
+            'port' => env('DB_TSA4_PORT', env('DB_PORT', '3306')),
+            'username' => env('DB_TSA4_USERNAME', env('DB_USERNAME', 'root')),
+            'password' => env('DB_TSA4_PASSWORD', env('DB_PASSWORD', '')),
+            'unix_socket' => env('DB_TSA4_SOCKET', env('DB_SOCKET', '')),
+            'charset' => env('DB_TSA4_CHARSET', env('DB_CHARSET', 'utf8mb4')),
+            'collation' => env('DB_TSA4_COLLATION', env('DB_COLLATION', 'utf8mb4_unicode_ci')),
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'foreign_key_constraints' => env('DB_TSA4_FOREIGN_KEYS', true),
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                Mysql::ATTR_SSL_CA => env('DB_TSA4_SSL_CA', env('MYSQL_ATTR_SSL_CA')),
             ]) : [],
         ],
 

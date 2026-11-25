@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Tfa8User;
+use App\Models\Tsa4User;
 use App\Models\User;
 
 return [
@@ -42,6 +44,14 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'tfa8' => [
+            'driver' => 'session',
+            'provider' => 'tfa8_users',
+        ],
+        'tsa4' => [
+            'driver' => 'session',
+            'provider' => 'tsa4_users',
+        ],
     ],
 
     /*
@@ -65,6 +75,14 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', User::class),
+        ],
+        'tfa8_users' => [
+            'driver' => 'eloquent',
+            'model' => Tfa8User::class,
+        ],
+        'tsa4_users' => [
+            'driver' => 'eloquent',
+            'model' => Tsa4User::class,
         ],
 
         // 'users' => [

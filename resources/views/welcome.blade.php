@@ -80,6 +80,18 @@
                     </a>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
+                    <a href="{{ route('tfa8.home') }}" class="text-decoration-none text-dark">
+                        <article class="card project-card h-100 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <span class="badge text-bg-primary mb-3">TFA8</span>
+                                <h2 class="h4 card-title">Authenticated POS App</h2>
+                                <p class="card-text text-secondary">Resource-based customer and user management protected by authentication.</p>
+                                <span class="btn btn-outline-primary">Open project</span>
+                            </div>
+                        </article>
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
                     <a href="{{ route('tsa3.home') }}" class="text-decoration-none text-dark">
                         <article class="card project-card h-100 border-0 shadow-sm">
                             <div class="card-body p-4">
@@ -88,6 +100,18 @@
                                 <p class="card-text text-secondary">
                                     A Laravel task dashboard with today-only and full-list views.
                                 </p>
+                                <span class="btn btn-outline-warning">Open project</span>
+                            </div>
+                        </article>
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <a href="{{ route('tsa4.home') }}" class="text-decoration-none text-dark">
+                        <article class="card project-card h-100 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <span class="badge text-bg-warning mb-3">TSA4</span>
+                                <h2 class="h4 card-title">Tasks for Today Management</h2>
+                                <p class="card-text text-secondary">Authenticated task CRUD, archival, and completion email notifications.</p>
                                 <span class="btn btn-outline-warning">Open project</span>
                             </div>
                         </article>

@@ -29,6 +29,10 @@
         <env name="DB_URL" value=""/>
         <env name="DB_TSA3_CONNECTION" value="sqlite"/>
         <env name="DB_TSA3_DATABASE" value=":memory:"/>
+        <env name="DB_TFA8_CONNECTION" value="sqlite"/>
+        <env name="DB_TFA8_DATABASE" value=":memory:"/>
+        <env name="DB_TSA4_CONNECTION" value="sqlite"/>
+        <env name="DB_TSA4_DATABASE" value=":memory:"/>
         <env name="MAIL_MAILER" value="array"/>
         <env name="QUEUE_CONNECTION" value="sync"/>
         <env name="SESSION_DRIVER" value="array"/>

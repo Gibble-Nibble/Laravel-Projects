@@ -8,7 +8,14 @@ use App\Http\Controllers\Tfa6UserController;
 use App\Http\Controllers\Tfa7CustomerController;
 use App\Http\Controllers\Tfa7PageController;
 use App\Http\Controllers\Tfa7UserController;
+use App\Http\Controllers\Tfa8AuthController;
+use App\Http\Controllers\Tfa8CustomerController;
+use App\Http\Controllers\Tfa8PageController;
+use App\Http\Controllers\Tfa8UserController;
 use App\Http\Controllers\Tsa3PageController;
+use App\Http\Controllers\Tsa4AuthController;
+use App\Http\Controllers\Tsa4PageController;
+use App\Http\Controllers\Tsa4TaskController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -52,4 +59,37 @@ Route::prefix('tsa3')->name('tsa3.')->group(function () {
     Route::get('/tasks', [Tsa3PageController::class, 'tasks'])->name('tasks');
     Route::get('/profile', [Tsa3PageController::class, 'profile'])->name('profile');
     Route::get('/about', [Tsa3PageController::class, 'about'])->name('about');
+});
+
+Route::prefix('tfa8')->name('tfa8.')->group(function () {
+    Route::get('/', [Tfa8PageController::class, 'index'])->name('home');
+    Route::get('/about', [Tfa8PageController::class, 'about'])->name('about');
+
+    Route::get('/login', [Tfa8AuthController::class, 'showLogin'])->name('login');
+    Route::post('/login', [Tfa8AuthController::class, 'login'])->name('login.store');
+    Route::get('/register', [Tfa8AuthController::class, 'showRegister'])->name('register');
+    Route::post('/register', [Tfa8AuthController::class, 'register'])->name('register.store');
+    Route::post('/logout', [Tfa8AuthController::class, 'logout'])->name('logout');
+
+    Route::middleware('auth:tfa8')->group(function () {
+        Route::resource('customers', Tfa8CustomerController::class);
+        Route::resource('users', Tfa8UserController::class);
+    });
+});
+
+Route::prefix('tsa4')->name('tsa4.')->group(function () {
+    Route::get('/', [Tsa4PageController::class, 'index'])->name('home');
+    Route::get('/profile', [Tsa4PageController::class, 'profile'])->name('profile');
+    Route::get('/about', [Tsa4PageController::class, 'about'])->name('about');
+    Route::get('/login', [Tsa4AuthController::class, 'showLogin'])->name('login');
+    Route::post('/login', [Tsa4AuthController::class, 'login'])->name('login.store');
+    Route::get('/register', [Tsa4AuthController::class, 'showRegister'])->name('register');
+    Route::post('/register', [Tsa4AuthController::class, 'register'])->name('register.store');
+    Route::post('/logout', [Tsa4AuthController::class, 'logout'])->name('logout');
+
+    Route::middleware('auth:tsa4')->group(function () {
+        Route::resource('tasks', Tsa4TaskController::class)->except(['index', 'show']);
+    });
+
+    Route::resource('tasks', Tsa4TaskController::class)->only(['index', 'show']);
 });

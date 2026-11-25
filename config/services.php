@@ -18,6 +18,11 @@ return [
         'key' => env('POSTMARK_API_KEY'),
     ],
 
+    'tsa4_task_completed_recipient' => env(
+        'TSA4_TASK_COMPLETED_RECIPIENT',
+        env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+    ),
+
     'resend' => [
         'key' => env('RESEND_API_KEY'),
     ],

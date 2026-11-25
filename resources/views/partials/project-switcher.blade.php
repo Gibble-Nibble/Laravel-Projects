@@ -6,7 +6,9 @@
         <li><a class="dropdown-item" href="{{ route('tfa5.home') }}">TFA5 - POS App</a></li>
         <li><a class="dropdown-item" href="{{ route('tfa6.home') }}">TFA6 - Eloquent POS App</a></li>
         <li><a class="dropdown-item" href="{{ route('tfa7.home') }}">TFA7 - Editable POS App</a></li>
+        <li><a class="dropdown-item" href="{{ route('tfa8.home') }}">TFA8 - Authenticated POS App</a></li>
         <li><a class="dropdown-item" href="{{ route('tsa3.home') }}">TSA3 - Tasks for Today</a></li>
+        <li><a class="dropdown-item" href="{{ route('tsa4.home') }}">TSA4 - Task Management</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="{{ route('projects.index') }}">All projects</a></li>
     </ul>
